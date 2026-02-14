@@ -18,7 +18,10 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'https://convoai-5zieqy4lt-pushkar-pawars-projects-337efcb7.vercel.app',
+  origin: [
+    "http://localhost:5173", // local Vite dev
+    process.env.FRONTEND_URL // Amplify production
+  ],
   credentials: true
 }));
 app.use(express.json());
